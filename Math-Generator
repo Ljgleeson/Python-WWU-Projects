@@ -1,0 +1,83 @@
+# Author: Liam Gleeson
+# Description: Lab 5, CSCI 141
+# Date: 5/8/18
+
+# function print salutation
+# input: a person's name
+# returns: nothing
+import random
+
+def printSalutation(aName):
+    
+    #print a personalized welcome message, along with instructions
+    print("Welcome", aName, "!", sep=" ")
+    print("Lets practice addition, multiplication, and subtractions!")
+    print("Once you start, type -1 to quit")
+    
+# prompt the user to input their name
+personsName = input("Hi. What is your name? ")
+printSalutation(personsName)
+
+# prompt user to specify what type of questions is desired, and saves that
+# into a variable
+qType = input("What type of questions do you want to see? (a, m, or s)")
+
+#All three of my functions are displayed here. Each for their seperate variable
+def displayAdditionQuestion():
+    num1 = random.randint(0,9)
+    num2 = random.randint(0,9)
+    print("What is", num1, "+", num2, "? ")
+    return num1 + num2
+
+def displaySubtractionQuestion():
+    num3 = random.randint(10,20)
+    num4 = random.randint(0,10)
+    print("What is", num3, "-", num4, "? ")
+    return num3 - num4
+
+def displayMultiplicationQuestion ():
+    num5 = random.randint(0,10)
+    num6 = random.randint(0,10)
+    print("what is", num5, "times", num6, "? ")
+    return num5 * num6
+#I have the while function underneath the three functions so it can input from the above functions.
+continuePlaying = True
+while (continuePlaying):
+    print("=================")
+#This is the addition code
+    if (qType == "a"):
+        correctAnswer = displayAdditionQuestion()
+        userAnswer = int(input("What is your answer? "))
+        if(userAnswer == -1):
+            continuePlaying = False;
+            break
+        if (userAnswer == correctAnswer):
+            print("Good job. Correct")
+        else:
+            print("Good try, but incorrect")
+            print("The correct answer was", correctAnswer)
+#This is the subtraction code            
+    if (qType == "s"):
+        correctAnswer = displaySubtractionQuestion()
+        userAnswer = int(input("What is your answer? "))
+        if(userAnswer == -1):
+            continuePlaying = False;
+            break
+        if(userAnswer == correctAnswer):
+            print("Good job. Correct")
+        else:
+            print("Good try, but incorrect")
+            print("the correct answer was", correctAnswer)
+#This is the multiplication code         
+    if (qType == "m"):
+        correctAnswer = displayMultiplicationQuestion()
+        userAnswer = int(input("What is your answer? "))
+        if(userAnswer == -1):
+            continuePlaying = False;
+            break
+        if(userAnswer == correctAnswer):
+            print("Good job. Correct")
+        else:
+            print("Good try, but incorrect")
+            print("the correct answer was", correctAnswer)
+#end of my code
